@@ -19,13 +19,17 @@ public class Doctor {
     return specialtyid;
   }
 
+  public int getDoctorId() {
+    return doctorid;
+  }
+
   @Override
   public boolean equals(Object otherDoctor) {
     if (!(otherDoctor instanceof Doctor)) {
       return false;
     } else {
       Doctor newDoctor = (Doctor) otherDoctor;
-      return this.getDoctorName().equals(newDoctor.getDoctorName());
+      return this.getDoctorName().equals(newDoctor.getDoctorName()) && this.getDoctorId() == newDoctor.getDoctorId();
     }
   }
 
@@ -48,5 +52,15 @@ public class Doctor {
       .executeAndFetch(Doctor.class);
     }
   }
+
+  public static Doctor find(int doctorid) {
+    try(Connection con = DB.sql2o.open()) {
+      String sql = "SELECT * FROM doctors where doctorid=:doctorid";
+      Doctor newDoctor = con.createQuery(sql)
+        .addParameter("doctorid", doctorid)
+        .executeAndFetchFirst(Doctor.class);
+      return newDoctor;
+    }
+}
 
 }

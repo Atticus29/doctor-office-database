@@ -7,10 +7,12 @@
 <h2>Clinic Specialties</h2>
 
 <h3>Existing Specialties</h3>
-#if ($specialties)
+#if ($specialties.size()>0)
   #foreach ($specialty in $specialties)
     <ul>
-      <li><a href="/specialties/$specialty.getSpecialtyId()">$specialty.getSpecialityName()</li>
+      <li>
+        <a href="/specialties/$specialty.getSpecialtyId()">$specialty.getSpecialtyName()</a>
+        </li>
     </ul>
   #end
 #else
@@ -19,9 +21,9 @@
 
 <h3>Add Specialty</h3>
 <div class="form-group">
-  <form action="/specialties" method="post">
+  <form action="/" method="post">
     <div class="form-group">
-      <label for="specialtyName">Player 1 Band Name</label>
+      <label for="specialtyName">Specialty Name</label>
       <input id="specialtyName" name="specialtyName" type="text">
     </div>
     <button type="submit" class="btn btn-success">Add Specialty!</button>

@@ -35,4 +35,24 @@ public class DoctorTest {
     assertTrue(testDoctor2.equals(testDoctor3));
   }
 
+  @Test
+  public void all_returnsAllInstancesOfDoctor_true() {
+    Doctor testDoctor2 = new Doctor("Dr.Mark",1);
+    testDoctor2.save();
+    assertEquals(true, Doctor.all().get(0).equals(testDoctor));
+    assertEquals(true, Doctor.all().get(1).equals(testDoctor2));
+  }
+
+  @Test
+  public void getDoctorId_assignsDoctorId_true() {
+    assertTrue(testDoctor.getDoctorId() > 0);
+  }
+
+  @Test
+  public void find_returnsDoctorWithId_testDoctor2() {
+    Doctor testDoctor2 = new Doctor("Dr.Mark",1);
+    testDoctor2.save();
+    assertEquals(Doctor.find(testDoctor2.getDoctorId()), testDoctor2);
+  }
+
 }
