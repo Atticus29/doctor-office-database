@@ -1,0 +1,15 @@
+<!-- doctor.vtl -->
+<div class="jumbotron">
+  $doctor.getDoctorName()
+</div>
+<div class="row" id="row1">
+  <h4>Specialty: <span class="attribute-span">$doctor.getDoctorSpecialty()</span></h4>
+  <h4>
+    <a href="/specialties/:specialtyID/doctors/:doctorID/patients">Patients</a>
+  </h4>
+</div>
+<div class="row" id="row2">
+  <a href="/specialties/:specialtyID/doctors/:doctorID/patients/new" class="btn btn-success">Add Patient</a>
+</div>
+
+<!-- doctor.vtl -->

@@ -1,0 +1,12 @@
+<!-- patient-form.vtl -->
+<div class="jumbotron">
+  Patients
+</div>
+<form action="/specialties/:specialtyID/doctors/:doctorID/patients" method="post">
+  <label for="patientName">Patient Name:</label>
+  <input type="text" name="patientName" class="form-control">
+  <label for="birthdate">Patient Birthdate:</label>
+  <input type="text" name="birthdate" class="form-control">
+  <button type="submit" class="btn btn-success">Add</button>
+</form>
+<!-- patient-form.vtl -->
