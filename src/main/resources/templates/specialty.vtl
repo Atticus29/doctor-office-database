@@ -1,0 +1,19 @@
+<!--specialty.vtl-->
+<div class="jumbotron">
+  <h1>Fisher Stafford Clinic</h1>
+  <h2>$specialty.getSpecialtyName()</h2>
+</div>
+<div class="well">
+<h3>$Specialty.getSpecialtyName()</h3>
+  #foreach($doctor in $doctor.getDoctor())
+    <ul>
+      <li>Member Name: $member.getMemberName()</li>
+      <li><a href="/teams/$team.getTeamId()/members/$member.getMemberId()">See Complete Profile</a></li>
+    </ul>
+  #end
+<h4><a href="/teams/$team.getTeamId()/add-team-member">Add Members</a></h4>
+</div>
+<div class="container">
+  <h4><a href="/">Back to Home</a></h4>
+</div>
+<!--specialty.vtl-->

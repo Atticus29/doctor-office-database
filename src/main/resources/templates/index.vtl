@@ -1,3 +1,31 @@
 <!--index.vtl-->
 
+<div class="jumbotron">
+ <h1>Fisher Stafford Clinic</h1>
+</div>
+
+<h2>Clinic Specialties</h2>
+
+<h3>Existing Specialties</h3>
+#if ($specialties)
+  #foreach ($specialty in $specialties)
+    <ul>
+      <li><a href="/specialties/$specialty.getSpecialtyId()">$specialty.getSpecialityName()</li>
+    </ul>
+  #end
+#else
+  <p>No specialties yet. Add one below.</p>
+#end
+
+<h3>Add Specialty</h3>
+<div class="form-group">
+  <form action="/specialties" method="post">
+    <div class="form-group">
+      <label for="specialtyName">Player 1 Band Name</label>
+      <input id="specialtyName" name="specialtyName" type="text">
+    </div>
+    <button type="submit" class="btn btn-success">Add Specialty!</button>
+  </form>
+</div>
+
 <!--index.vtl-->
