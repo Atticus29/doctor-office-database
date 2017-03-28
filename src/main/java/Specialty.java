@@ -23,9 +23,9 @@ public class Specialty {
     return specialtyName;
   }
 
-  // public int getSpecialtyId(){
-  //   return specialtyId;
-  // }
+  public int getSpecialtyId(){
+    return specialtyid;
+  }
 
   public static List<Specialty> all() {
     String sql = "SELECT specialtyid, specialtyname FROM specialties";
@@ -37,9 +37,10 @@ public class Specialty {
   public void save(){
     try(Connection con = DB.sql2o.open()){
       String sqlCommand = "INSERT INTO specialties (specialtyname) VALUES (:specialtyname);";
-      con.createQuery(sqlCommand)
+      this.specialtyid = (int) con.createQuery(sqlCommand, true)
         .addParameter("specialtyname", specialtyName)
-        .executeUpdate();
+        .executeUpdate()
+        .getKey();
     }
   }
 }

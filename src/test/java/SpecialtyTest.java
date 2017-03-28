@@ -25,10 +25,11 @@ public class SpecialtyTest {
     assertEquals("Radiology", testSpecialty.getSpecialtyName());
   }
 
-  // @Test
-  // public void getSpecialtyId_returnsId_int(){
-  //   assertTrue(testSpecialty.getSpecialtyId()>0);
-  // }
+  @Test
+  public void getSpecialtyId_returnsId_int(){
+    System.out.println("ID is " + testSpecialty.getSpecialtyId());
+    assertTrue(testSpecialty.getSpecialtyId()>0);
+  }
 
   @Test
   public void getsAllSpecialties_true() {
@@ -48,6 +49,12 @@ public class SpecialtyTest {
   public void save_returnsTrueIfDescriptionsAreTheSame_true(){
     Specialty retrievedSpecialty = Specialty.all().get(0);
     assertEquals(retrievedSpecialty, testSpecialty);
+  }
+
+  @Test
+  public void save_assignsIdToObject(){
+    Specialty retrievedObject = Specialty.all().get(0);
+    assertEquals(testSpecialty.getSpecialtyId(),retrievedObject.getSpecialtyId());
   }
 
 }
